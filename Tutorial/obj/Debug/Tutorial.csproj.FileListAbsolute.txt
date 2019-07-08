@@ -1,0 +1,6 @@
+C:\Users\Frank van Woerden\RiderProjects\Tutorial\Tutorial\bin\Debug\Tutorial.exe
+C:\Users\Frank van Woerden\RiderProjects\Tutorial\Tutorial\bin\Debug\Tutorial.pdb
+C:\Users\Frank van Woerden\RiderProjects\Tutorial\Tutorial\obj\Debug\Tutorial.csprojAssemblyReference.cache
+C:\Users\Frank van Woerden\RiderProjects\Tutorial\Tutorial\obj\Debug\Tutorial.csproj.CoreCompileInputs.cache
+C:\Users\Frank van Woerden\RiderProjects\Tutorial\Tutorial\obj\Debug\Tutorial.exe
+C:\Users\Frank van Woerden\RiderProjects\Tutorial\Tutorial\obj\Debug\Tutorial.pdb
