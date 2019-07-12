@@ -67,7 +67,7 @@ namespace Tutorial.GuessingGame
         {
             if (automatic)
             {
-                return HighLowAiRandom.MakeGuess(this);
+                return HighLowAiHalfing.MakeGuess(this);
             }
             else
             {

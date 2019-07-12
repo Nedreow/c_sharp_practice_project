@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GuessingGame\HighLow.cs" />
+    <Compile Include="GuessingGame\HighLowAiHalfing.cs" />
     <Compile Include="GuessingGame\HighLowAIRandom.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
