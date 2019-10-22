@@ -8,12 +8,12 @@ namespace Tutorial
         public static void Main(string[] args)
         {
             int totalGuesses = 0;
-            const int gamesToPlay = 1;
-            var guessingGame = GuessingGame.GuessingGame.InitializeFactories().ExecuteCreation(Games.HighLow, false);
+            const int gamesToPlay = 1000;
+            var guessingGame = GuessingGame.GuessingGame.InitializeFactories().ExecuteCreation(Games.HighLow, true);
 
             for (int i = 0; i < gamesToPlay; i++)
             {
-                totalGuesses += guessingGame.Play(1, 200);
+                totalGuesses += guessingGame.Play(1, 100);
             }
 
             float averageGuesses = (float)totalGuesses / gamesToPlay;
