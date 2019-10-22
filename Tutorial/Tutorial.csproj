@@ -43,6 +43,8 @@
         <Compile Include="GuessingGame\GuessingGameFactory.cs" />
         <Compile Include="GuessingGame\HighLowFactory.cs" />
         <Compile Include="GuessingGame\HighLowGuessingGame.cs" />
+        <Compile Include="GuessingGame\HotColdFactory.cs" />
+        <Compile Include="GuessingGame\HotColdGuessingGame.cs" />
         <Compile Include="GuessingGame\IGuessingGame.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
