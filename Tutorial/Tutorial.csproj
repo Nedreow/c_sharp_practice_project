@@ -38,7 +38,12 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="GuessingGame\Games.cs" />
+        <Compile Include="GuessingGame\GuessingGame.cs" />
+        <Compile Include="GuessingGame\GuessingGameFactory.cs" />
+        <Compile Include="GuessingGame\HighLowFactory.cs" />
         <Compile Include="GuessingGame\HighLowGuessingGame.cs" />
+        <Compile Include="GuessingGame\IGuessingGame.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>

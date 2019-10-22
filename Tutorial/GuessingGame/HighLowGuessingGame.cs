@@ -1,51 +1,7 @@
 using System;
-using System.Collections.Generic;
 
 namespace Tutorial.GuessingGame
 {
-    public enum Games
-    {
-        HighLow
-    }
-    
-    public interface IGuessingGame
-    {
-        int Play(int minimumNumber = 1, int maximumNumber = 100);
-    }
-    
-    public class GuessingGame
-    {
-        private readonly Dictionary<Games, GuessingGameFactory>_factories;
-
-        private GuessingGame()
-        {
-            _factories = new Dictionary<Games, GuessingGameFactory>();
-
-            foreach (Games game in Enum.GetValues(typeof(Games)))
-            {
-                var factory = (GuessingGameFactory)Activator.CreateInstance(Type.GetType("Tutorial.GuessingGame." + Enum.GetName(typeof(Games), game) + "Factory"));
-                _factories.Add(game, factory);
-            }
-        }
-        
-        public static GuessingGame InitializeFactories() => new GuessingGame();
-            
-        public IGuessingGame ExecuteCreation(Games action, bool automatic) =>_factories[action].Create(automatic);
-    }
- 
-    public abstract class GuessingGameFactory
-    {
-        public abstract IGuessingGame Create(bool automatic = true);
-    }
-
-    public class HighLowFactory : GuessingGameFactory
-    {
-        public override IGuessingGame Create(bool automatic = true)
-        {
-            return new HighLowGuessingGame(automatic);
-        }
-    }
-    
     public class HighLowGuessingGame : IGuessingGame
     {
         private readonly bool _automatic;
