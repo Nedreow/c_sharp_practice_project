@@ -1,14 +1,15 @@
 ﻿using System;
+using Tutorial.GuessingGame;
 
 namespace Tutorial
 {
-    internal class Program
+    internal static class Program
     {
         public static void Main(string[] args)
         {
             int totalGuesses = 0;
             const int gamesToPlay = 1;
-            GuessingGame guessingGame = new GuessingGame();
+            var guessingGame = GuessingGame.GuessingGame.InitializeFactories().ExecuteCreation(Games.HighLow, false);
 
             for (int i = 0; i < gamesToPlay; i++)
             {
