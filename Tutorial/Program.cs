@@ -8,15 +8,9 @@ namespace Tutorial
         public static void Main(string[] args)
         {
             int totalGuesses = 0;
-            const int gamesToPlay = 1;
-            
-            Console.WriteLine("what game do you want to play: ");
-            foreach (var game in Enum.GetNames(typeof(Games)))
-            {
-                Console.WriteLine($"{game}");
-            }
-            
-            var guessingGame = GuessingGame.GuessingGame.InitializeFactories().ExecuteCreation(GetGameToPlay(), false);
+            const int gamesToPlay = 1000;
+
+            var guessingGame = GuessingGame.GuessingGame.InitializeFactories().ExecuteCreation(Games.HighLow, true);
 
             for (int i = 0; i < gamesToPlay; i++)
             {
@@ -32,6 +26,12 @@ namespace Tutorial
         {
             try
             {
+                Console.WriteLine("what game do you want to play: ");
+                foreach (var game in Enum.GetNames(typeof(Games)))
+                {
+                    Console.WriteLine($"{game}");
+                }
+                
                 return (Games)Enum.Parse(typeof(Games),Console.ReadLine());
             }
             catch (Exception e)

@@ -56,7 +56,7 @@ namespace Tutorial.GuessingGame
         {
             _minNumber = minimumNumber;
             _maxNumber = maximumNumber;
-            _goalNumber = _rand.Next(_minNumber, _maxNumber);
+            _goalNumber = _rand.Next(_minNumber, _maxNumber + 1);
             _guesses = 0;
         }
 
@@ -64,7 +64,7 @@ namespace Tutorial.GuessingGame
         {
             if (_automatic)
             {
-                int guessedNumber = _rand.Next(_minNumber, _maxNumber);
+                int guessedNumber = _rand.Next(_minNumber, _maxNumber + 1);
                 Console.WriteLine($"My guess is {guessedNumber}");
                 _guesses++;
 

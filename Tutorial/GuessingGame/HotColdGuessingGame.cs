@@ -44,7 +44,7 @@ namespace Tutorial.GuessingGame
         {
             if (_automatic)
             {
-                int guessedNumber = _rand.Next(_minNumber, _maxNumber);
+                int guessedNumber = _rand.Next(_minNumber, _maxNumber + 1);
                 Console.WriteLine($"My guess is {guessedNumber}");
                 _guesses++;
 
@@ -85,16 +85,42 @@ namespace Tutorial.GuessingGame
                 return false;
             }
 
+            while (guessedNumber == _previousGuess)
+            {
+                Console.WriteLine("That guess is the same as your last guess, please guess another integer");
+                guessedNumber = ReceiveGuess();
+            }
+
             var guessIsCloser = GuessIsCloser(guessedNumber);
 
+            var difference = Math.Abs(guessedNumber - _previousGuess) / 2;
+            
             if (guessIsCloser)
             {
                 Console.WriteLine($"Your guess of {guessedNumber} is closer to the correct number than your last guess of {_previousGuess}");
                 _previousGuess = guessedNumber;
+                
+                if (guessedNumber < _previousGuess)
+                {
+                    _maxNumber = guessedNumber + (difference > 0 ? difference : 1);
+                }
+                else
+                {
+                    _minNumber = guessedNumber - (difference > 0 ? difference : 1);
+                }
             }
             else
             {
                 Console.WriteLine($"Your guess of {guessedNumber} is farther from the correct number than your last guess of {_previousGuess}");
+
+                if (guessedNumber < _previousGuess)
+                {
+                    _minNumber = guessedNumber + (difference > 0 ? difference : 1);
+                }
+                else
+                {
+                    _maxNumber = guessedNumber - (difference > 0 ? difference : 1);
+                }
             }
 
             return false;
@@ -109,7 +135,7 @@ namespace Tutorial.GuessingGame
         {
             _minNumber = minimumNumber;
             _maxNumber = maximumNumber;
-            _goalNumber = _rand.Next(_minNumber, _maxNumber);
+            _goalNumber = _rand.Next(_minNumber, _maxNumber + 1);
             _guesses = 0;
 
             _hasGuessed = false;
