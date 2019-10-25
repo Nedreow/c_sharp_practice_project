@@ -78,12 +78,31 @@ namespace Tutorial.GuessingGame
             
             if (!_hasGuessed)
             {
+                Console.WriteLine("Your guess was incorrect, please try again");
                 _previousGuess = guessedNumber;
+                _hasGuessed = true;
                 
                 return false;
             }
 
-            return true;
+            var guessIsCloser = GuessIsCloser(guessedNumber);
+
+            if (guessIsCloser)
+            {
+                Console.WriteLine($"Your guess of {guessedNumber} is closer to the correct number than your last guess of {_previousGuess}");
+                _previousGuess = guessedNumber;
+            }
+            else
+            {
+                Console.WriteLine($"Your guess of {guessedNumber} is farther from the correct number than your last guess of {_previousGuess}");
+            }
+
+            return false;
+        }
+
+        private bool GuessIsCloser(int guessedNumber)
+        {
+            return Math.Abs(guessedNumber - _goalNumber) < Math.Abs(_previousGuess - _goalNumber);
         }
         
         private void InitializeGame(int minimumNumber, int maximumNumber)
